@@ -48,52 +48,80 @@ if(guestList.includes(askName)){
 }
 
 
-var number=Math.random()*100;
-number=Math.floor(number)+1;
-
+//push() & pop()
+//use modulo for getting the divisible of a number
 var output=[];
 var count=1;
 
 function fizzBuzz(){
-    if(count%3===0 && count%5===0){
+    while(count<=100){
+        if(count%3===0 && count%5===0){       
+            output.push("FizzBuzz");
+        } 
+        else if(count%3===0){         
+            output.push("Fizz");  
+        }
+        else if(count%5===0){  
+            output.push("Buzz");  
+        }
+        else {
+            output.push(count); 
+        }
         
-        output.push("FizzBuzz");
-        console.log(output);
-        count++;
-    } 
-    else if(count%3===0){
-        
-        output.push("Fizz");
-        console.log(output);
-        count++;
-    }
-    else if(count%5===0){
-        
-        output.push("Buzz");
-        console.log(output);
         count++;
     }
-    else {
-        
-        output.push(count);
-        console.log(output);
-        count++;
-    }
-   
+    console.log(output);
 }
 fizzBuzz();
-fizzBuzz();
-fizzBuzz();
-fizzBuzz();
-fizzBuzz();
-fizzBuzz();
-fizzBuzz();
-fizzBuzz();
-fizzBuzz();
-fizzBuzz();
-fizzBuzz();
-fizzBuzz();
-fizzBuzz();
-fizzBuzz();
-fizzBuzz();
 
+
+var nameList=["Angela","Ben","Jenny","Michael","Chloe"];
+function whosPaying(names){
+
+    var numberOfPeople= nameList.length;
+    var randomPersonPosition=Math.floor(Math.random()*numberOfPeople);
+    var randomPerson=names[randomPersonPosition];
+
+    console.log(`${randomPerson} is going to buy lunch today!`) ;
+}
+
+whosPaying(nameList);
+
+var beers=99;
+var numberBeersLeft=beers;
+function bottlesOfBeer(){
+    var bottleWord="bottles";
+    while (numberBeersLeft!==0) {
+        if(numberBeersLeft===1){
+            bottleWord="bottle"
+        }
+        console.log(`${numberBeersLeft} ${bottleWord} of beer on the wall, ${numberBeersLeft} ${bottleWord} of beer.`);
+        numberBeersLeft--;
+        console.log(`Take one down and pass it around, ${numberBeersLeft} ${bottleWord} of beer on the wall.`);
+    }
+    console.log(`No more bottles of beer on the wall, no more bottles of beer.`);
+    console.log(`Go to the store and buy some more, ${beers} bottles of beer on the wall.`);
+
+}
+// bottlesOfBeer();
+
+var fibonacciNumber=[];
+var i=0;
+var first=0;
+var second=1;
+var third;
+function fibonacciGenerator(n){
+    
+    while(i<n){
+       
+        fibonacciNumber.push(first);
+        third=second;
+        first=first+second;
+        second=first;
+        first=third;
+        i++;
+    }
+    console.log(fibonacciNumber);
+}
+
+fibonacciGenerator(10);
