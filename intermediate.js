@@ -125,3 +125,30 @@ function fibonacciGenerator(n){
 }
 
 fibonacciGenerator(10);
+
+
+var winningCombination=[];
+function winningLottoDigits(category){
+    for (let index = 0; index < 6; index++) {
+        var combination=Math.floor(Math.random()*category);
+        winningCombination.push(combination);
+    }
+    console.log(winningCombination);
+}
+
+var selected=prompt("Select the category where you want to bet? a.6/58 b.6/55 c.6/49 d.6/45 e.6/42");
+if(selected==="a"){
+    winningLottoDigits(58);
+}
+else if(selected==="b"){
+    winningLottoDigits(55);
+}
+else if(selected==="c"){
+    winningLottoDigits(49);
+}
+else if(selected==="d"){
+    winningLottoDigits(45);
+}
+else{
+    winningLottoDigits(42);
+}
