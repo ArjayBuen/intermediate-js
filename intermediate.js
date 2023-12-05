@@ -129,9 +129,20 @@ fibonacciGenerator(10);
 
 var winningCombination=[];
 function winningLottoDigits(category){
-    for (let index = 0; index < 6; index++) {
-        var combination=Math.floor(Math.random()*category);
+    let sixDigits=6;
+    for (let index = 0; index < sixDigits; index++) {
+        var combination=Math.floor(Math.random()*category)+1;
+        // winningCombination.push(combination);
+        //there's a problem a number can be repeated, it must not repeated(solved)
+    if(!winningCombination.includes(combination)){
         winningCombination.push(combination);
+        //combination is push to the array if is not the same digit inside the array
+    }else{
+        //if combination is repeated it will not push it to the array
+        //so winningCombination might have less than 6
+        sixDigits++;//by adding 1 it will fill the loop until it contains 6 digits
+    }
+
     }
     console.log(winningCombination);
 }
